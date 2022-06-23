@@ -17,7 +17,7 @@ public class Start extends JFrame  {
 		JFrame frame5 = new JFrame("Scores");
 		JFrame frame6 = new JFrame("Options");
 		JTextArea jt= new JTextArea("CONTROLS:Use LEFT (<==) and RIGHT (==>) arrows to move the paddle",5,20);
-		JTextArea jt1= new JTextArea("Name:Mert Yigit\n NO: 20190702021\n Email: mert.yigit@std.yeditepe.edu.tr",5,20);
+		JTextArea jt1= new JTextArea("Name:Mert Yigit\n Email: mert.yigit@std.yeditepe.edu.tr",5,20);
 	
 		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,7 +43,7 @@ public class Start extends JFrame  {
 				
 		      }
 		    };
-	    ActionListener exit = new ActionListener() {
+	         ActionListener exit = new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				
 				System.exit(0);
@@ -84,7 +84,7 @@ public class Start extends JFrame  {
 						Oyun.lvl =2;
 				      }
 				    };
-	   ActionListener level3 = new ActionListener() {
+	        ActionListener level3 = new ActionListener() {
 						public void actionPerformed(ActionEvent actionEvent) {
 							Oyun.topdirY =13/2;
 							Oyun.topdirX =13/2;
@@ -100,12 +100,12 @@ public class Start extends JFrame  {
 					
 					
 					JPanel p = new JPanel();
-					p.add(k);
+				        p.add(k);
 					
-					 f.setSize(250, 300);
-				     f.setVisible(true);    
-				    f.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 15));
-				    f.setLocationRelativeTo(null);
+				        f.setSize(250, 300);
+				        f.setVisible(true);    
+				        f.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 15));
+				        f.setLocationRelativeTo(null);
 				 
 			
 					JRadioButton lvl1 = new JRadioButton("Level 1 (Normal) ");  
@@ -146,11 +146,11 @@ public class Start extends JFrame  {
 					te.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					
 					JPanel p = new JPanel();			             
-			        p.add(k);
-			        p.add(x ); p.add(x1);p.add(x2 );p.add(x3 ); p.add(x4 );p.add(x5 );p.add(x6 ); p.add(x7 ); p.add(x8 );p.add(x9 );  		       
-			        f.add(p);    
-			        f.setSize(300, 400);
-			        f.setVisible(true);      
+			                 p.add(k);
+			                 p.add(x ); p.add(x1);p.add(x2 );p.add(x3 ); p.add(x4 );p.add(x5 );p.add(x6 ); p.add(x7 ); p.add(x8 );p.add(x9 );  		       
+			                 f.add(p);    
+			                 f.setSize(300, 400);
+			                 f.setVisible(true);      
 			                try {
 			                    FileInputStream fstream = new FileInputStream("High Scores.txt");
 			                  BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
@@ -200,11 +200,5 @@ public class Start extends JFrame  {
 		frame1.setLocationRelativeTo(null);
 		frame1.setSize(200, 380);
 		frame1.setVisible(true);
-		
-		
-	
-		
-
 	}
-
 }
