@@ -39,11 +39,9 @@ import javax.swing.Timer;
 
 public class Oyun extends JPanel implements KeyListener , ActionListener  {
 
-	 Timer timer = new Timer(1, this);
+	Timer timer = new Timer(1, this);
 	private BufferedImage paddleImage , RedBrick , Ball , Space;	
 	
-  
-
 	public static int lives = 3;
 	public static int score = 0;
 	public static int lvl = 1;
@@ -52,10 +50,7 @@ public class Oyun extends JPanel implements KeyListener , ActionListener  {
 	
 	public int en = 70;
 	public int boy = 32;
-	
-	
-	
-	
+		
 	private int topY = 200;
 	private int topX = 10;
 	public static int topdirY =9/2 ;
@@ -122,12 +117,12 @@ public class Oyun extends JPanel implements KeyListener , ActionListener  {
 	
 	@Override
 	public void paint(Graphics g) {
-		super.paint(g);		
+	super.paint(g);		
 		
-		g.drawImage(Space  ,0 , 0 ,800 , 600, this );
+	g.drawImage(Space  ,0 , 0 ,800 , 600, this );
 		
-		if(aaa == true) g.drawImage(RedBrick  ,40 , 20 ,en , boy, this );
-		if(aa == true) g.drawImage(RedBrick  ,40 , 70 ,en , boy, this );
+	if(aaa == true) g.drawImage(RedBrick  ,40 , 20 ,en , boy, this );
+	if(aa == true) g.drawImage(RedBrick  ,40 , 70 ,en , boy, this );
         if(a == true) g.drawImage(RedBrick  ,40 , 120 ,en , boy, this );          
         if(bbb == true)  g.drawImage(RedBrick  ,130 , 20 ,en , boy, this );
         if(bb == true) g.drawImage(RedBrick  ,130 , 70 ,en , boy, this );
@@ -151,9 +146,7 @@ public class Oyun extends JPanel implements KeyListener , ActionListener  {
         if(jj == true)g.drawImage(RedBrick  ,670, 70 ,en , boy, this );
         if(j == true) g.drawImage(RedBrick  ,670 , 120 ,en , boy, this );
 
-		g.drawImage(Ball  ,topX , topY  ,20 , 20, this );
-		
-		
+		g.drawImage(Ball  ,topX , topY  ,20 , 20, this );	
 		g.drawImage(paddleImage ,paddleX , 490 ,200 , 30, this );
 		
 		g.setColor(Color.WHITE);
@@ -164,19 +157,18 @@ public class Oyun extends JPanel implements KeyListener , ActionListener  {
 		
 		g.setColor(Color.WHITE);
 		g.drawString("LIVES "+lives , 690, 12);	
+		
 		if(score == 240) {
 			g.setColor(Color.GREEN);
 			g.setFont(new Font("TimesRoman", 1, 50));  
 			g.drawString("YOU WON ! ", 240, 250);
 		}
-		
-		
+				
 		if(lives == 0) {
 			g.setColor(Color.RED);
 			g.setFont(new Font("TimesRoman", 1, 50));  
 			g.drawString("GAME OVER ", 240, 250);
-		}
-	
+		}	
 	}
 	@Override
 	public void repaint() {
@@ -237,12 +229,10 @@ public class Oyun extends JPanel implements KeyListener , ActionListener  {
 		if(topY >= 475  ) {               //paddle 
 			if(paddleX+142  >=topX) {
 				if(paddleX-10  <=topX) {			
-					 topdirY =-topdirY;		
-						 
+					 topdirY =-topdirY;								 
 				}
 			}		
-		}		
-		
+		}				
 	//---------------------------------------------		
 		if(aaa==true) {if((topY  <=53  ) & (topY  >=20  ) &(topX >=40 )&(topX <= 110)) {	 			 
 					 aaa= false; score = score + 10; topdirY =-topdirY;}      }
@@ -292,33 +282,28 @@ public class Oyun extends JPanel implements KeyListener , ActionListener  {
 			h= false; score = score + 10;topdirY =-topdirY;}      }	
 		if(j==true) {if((topY  <=153  ) & (topY  >=120   )&(topX >=670)&(topX <= 740) ) {	 
 			j= false;score = score + 10;topdirY =-topdirY;}      }			
-
 		
-		//---------------------------------			
+		//---------------------------------------------------------------------------------			
 			repaint();
 			if(lives == 0 || score == 240) {
 				timer.stop();			
 				
-				
-				
-				 Scores op = new Scores();		
-					JFrame	f = new JFrame("Register");      			
-					op.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
-					JLabel  q = new JLabel("Your name :");
-				    f.add(q);	
-					 f.setSize(250, 300);
-				     f.setVisible(true);    
-				    f.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 15));     
-				   f.setLocationRelativeTo(null);
-				    f.add(x); 
-					JButton saveb = new JButton("Save");
-					f.add(saveb);
-					
-				  saveb.addActionListener(savename);
-        
-				 
-				 FileOutputStream fos = null;     
-			        try {
+			        Scores op = new Scores();		
+				JFrame	f = new JFrame("Register");      			
+				op.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
+				JLabel  q = new JLabel("Your name :");
+			        f.add(q);	
+	                        f.setSize(250, 300);
+				f.setVisible(true);    
+				f.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 15));     
+				f.setLocationRelativeTo(null);
+				f.add(x); 
+				JButton saveb = new JButton("Save");
+				f.add(saveb);	
+			        saveb.addActionListener(savename);	 
+				FileOutputStream fos = null;     
+			       
+				try {
 			            fos = new FileOutputStream("High Scores.txt",true);
            
 			            String sc = "Score=|";
@@ -329,8 +314,7 @@ public class Oyun extends JPanel implements KeyListener , ActionListener  {
 			           
 			            String timeStamp = new SimpleDateFormat("|yyyy/MM/dd-HH.mm.ss").format(Calendar.getInstance().getTime());
 			            byte[] s_arrayy = timeStamp.getBytes();        
-			            fos.write(s_arrayy);
-			           
+			            fos.write(s_arrayy);			           
 			            
 			        } catch (FileNotFoundException ex) {
 			            System.out.println("");
@@ -343,21 +327,12 @@ public class Oyun extends JPanel implements KeyListener , ActionListener  {
 			                fos.close();
 			            } catch (IOException ex) {
 			                System.out.println("");
-			            }
-			           
-			        }
-			        
-			      
-			     
-			}
-			
-			
-			
+			            }			           
+			        }		     
+			}						
 	}
 
 	private static String Method( JTextField  a) {
-	return a.getText();
-		
-	}
-	
+	return a.getText();		
+	}	
 }
