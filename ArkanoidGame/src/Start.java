@@ -197,6 +197,7 @@ public class Start extends JFrame  {
 		frame1.add(b4);
 		frame1.add(b5);
 		frame1.add(b6);
+		
 		frame1.setLocationRelativeTo(null);
 		frame1.setSize(200, 380);
 		frame1.setVisible(true);
